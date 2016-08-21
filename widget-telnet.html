@@ -162,7 +162,7 @@ cpdefine("inline:com-chilipeppr-widget-serialport", ["chilipeppr_ready", /* othe
          * instantiating code like a workspace or a different widget.
          */
         init: function() {
-            console.log("I am being initted. Thanks.");
+            console.log("Telnet: I am being initted. Thanks.");
 
             this.setupUiFromLocalStorage();
             this.btnSetup();
@@ -208,7 +208,7 @@ cpdefine("inline:com-chilipeppr-widget-serialport", ["chilipeppr_ready", /* othe
             // example further below. Notice we have to use "that" so 
             // that the this is set correctly inside the anonymous method
             $('#' + this.id + ' .btn-reconnect').click(function() {
-                console.log("saying hello");
+                console.log("Telnet: saying hello");
                 // Make sure popover is immediately hidden
                 $('#' + that.id + ' .btn-reconnect').popover("hide");
             });
