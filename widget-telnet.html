@@ -211,7 +211,8 @@ cpdefine("inline:com-chilipeppr-widget-serialport", ["chilipeppr_ready", /* othe
                 console.log("Telnet: saying hello");
                 // Make sure popover is immediately hidden
                 $('#' + that.id + ' .btn-reconnect').popover("hide");
-                that.send('http://10.20.2.183/command', {M114: ''});
+                that.send("$G");
+                
             });
 
             // Init Hello World 2 button on Tab 1. Notice the use
@@ -372,10 +373,16 @@ cpdefine("inline:com-chilipeppr-widget-serialport", ["chilipeppr_ready", /* othe
 
         },
         
-        send: function post(path, params, method) {
-          var url="http://10.20.2.183/command";
-          params += '\n';
-          var c=$.post(url,params);
+        send: function(msg) {
+          var url="/command";
+          msg += '\n';
+          var c=$.post(url,msg);
+          c.done(function(e){
+                  $("#com-chilipeppr-widget-serialport-host").empty();
+                  $.each(e.split("\n"), function(f){ 
+                    $("#com-chilipeppr-widget-serialport-host").append(this+"<br/>");
+                  });
+                });
       },
 
     }
