@@ -374,7 +374,7 @@ cpdefine("inline:com-chilipeppr-widget-serialport", ["chilipeppr_ready", /* othe
         },
         
         send: function(msg) {
-          var url="/command";
+          var url="http://10.20.2.183/command";
           msg += '\n';
           var c=$.post(url,msg);
           c.done(function(e){
