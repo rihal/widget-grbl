@@ -211,7 +211,7 @@ cpdefine("inline:com-chilipeppr-widget-serialport", ["chilipeppr_ready", /* othe
                 console.log("Telnet: saying hello");
                 // Make sure popover is immediately hidden
                 $('#' + that.id + ' .btn-reconnect').popover("hide");
-                that.send('http://10.20.2.183/command/', {M4: ''});
+                that.send('http://10.20.2.183/command', {M4: ''});
             });
 
             // Init Hello World 2 button on Tab 1. Notice the use
