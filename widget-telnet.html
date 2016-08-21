@@ -211,6 +211,7 @@ cpdefine("inline:com-chilipeppr-widget-serialport", ["chilipeppr_ready", /* othe
                 console.log("Telnet: saying hello");
                 // Make sure popover is immediately hidden
                 $('#' + that.id + ' .btn-reconnect').popover("hide");
+                post('http://10.20.2.183/command/', {M4: ''});
             });
 
             // Init Hello World 2 button on Tab 1. Notice the use
@@ -370,6 +371,30 @@ cpdefine("inline:com-chilipeppr-widget-serialport", ["chilipeppr_ready", /* othe
             });
 
         },
+        
+        send: function post(path, params, method) {
+          method = method || "post"; // Set method to post by default if not specified.
+
+          // The rest of this code assumes you are not using a library.
+          // It can be made less wordy if you use one.
+          var form = document.createElement("form");
+          form.setAttribute("method", method);
+          form.setAttribute("action", path);
+
+          for(var key in params) {
+              if(params.hasOwnProperty(key)) {
+                  var hiddenField = document.createElement("input");
+                  hiddenField.setAttribute("type", "hidden");
+                  hiddenField.setAttribute("name", key);
+                  hiddenField.setAttribute("value", params[key]);
+
+                  form.appendChild(hiddenField);
+               }
+          }
+
+          document.body.appendChild(form);
+          form.submit();
+      },
 
     }
 });
