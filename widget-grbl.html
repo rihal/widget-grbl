@@ -484,11 +484,11 @@ cpdefine("inline:com-chilipeppr-widget-grbl", ["chilipeppr_ready", "jquerycookie
             var that = this;
             if(this.g_status_reports === null){ //confirm no setInterval is currently running.
                 console.log("setInterval");
-                that.g_status_reports = setInterval(function(){
+                that.g_status_reports = setInterval(/*function(){
                     if(that.q_count === 0) { //only send $G if the queue is clear
                       that.getControllerInfo(); //send a $G every 2 seconds
                     }
-                }, 2000);
+                }*/that.getControllerInfo, 2000);
             }
             else {
               console.log("g_status_reports != null");
