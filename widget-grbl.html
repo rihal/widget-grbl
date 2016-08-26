@@ -487,6 +487,9 @@ cpdefine("inline:com-chilipeppr-widget-grbl", ["chilipeppr_ready", "jquerycookie
                         that.getControllerInfo(); //send a $G every 2 seconds
                 }, 2000);
             }
+            else {
+              console.log("g_status_reports != null");
+            }
         },
         grblResponse: function (recvline) {
             //console.log("GRBL: Message Received - " + recvline.dataline);
