@@ -422,7 +422,7 @@ cpdefine("inline:com-chilipeppr-widget-grbl", ["chilipeppr_ready", "jquerycookie
             
             //wait three second for arduino initialization before requesting the grbl config variables.
             setTimeout(function() {
-                //chilipeppr.publish("/com-chilipeppr-widget-serialport/requestSingleSelectPort",""); //Request port info
+                chilipeppr.publish("/com-chilipeppr-widget-serialport/requestSingleSelectPort",""); //Request port info
                 if(that.version === "")
                     that.sendCode("*init*\n"); //send request for grbl init line (grbl was already connected to spjs when chilipeppr loaded and no init was sent back.
                 that.sendCode("*status*\n"); //send request for initial status response.
@@ -431,7 +431,8 @@ cpdefine("inline:com-chilipeppr-widget-grbl", ["chilipeppr_ready", "jquerycookie
                 setTimeout(function() {
                     that.updateReportUnits();
                 }, 1000);
-
+                
+                console.log("calling restartStatusInterval");
                 that.restartStatusInterval();  //Start the $G tracking loop
                 
                 //that.g_status_reports = setInterval(function(){
