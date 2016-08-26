@@ -482,13 +482,13 @@ cpdefine("inline:com-chilipeppr-widget-grbl", ["chilipeppr_ready", "jquerycookie
             
             var that = this;
             if(this.g_status_reports === null){ //confirm no setInterval is currently running.
-                console.log("setInterval\n");
+                //console.log("setInterval\n");
                 that.g_status_reports = setInterval(function(){
                     if(that.q_count === 0) //only send $G if the queue is clear
                         that.getControllerInfo(); //send a $G every 2 seconds
                 }, 2000);
             }
-            console.log("g_status_reports !== null"\n);
+            //console.log("g_status_reports !== null"\n);
         },
         grblResponse: function (recvline) {
             //console.log("GRBL: Message Received - " + recvline.dataline);
